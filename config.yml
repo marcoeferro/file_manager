@@ -11,11 +11,10 @@ select:
   include:
     - "**/*.md"
   show_results: true
-  confirm: true
+  confirm: false
 
 sandbox:
   enabled: true
-  strategy: copy
   tmp_dir: /tmp/mass_edit
   cleanup: true
 
@@ -57,9 +56,12 @@ report:
   summary_file: "summary.txt"
 
 commit:
-  auto: true
+  auto: false
   require_clean_run: true
-
+  show_results: true
+  mode: replace
+  clean_dir: true
+  
 pipeline:
   - select
   - verify
