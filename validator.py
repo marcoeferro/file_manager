@@ -1,15 +1,15 @@
 import os
 
 class Validator:
-    def __init__(self, config, logger):
+    def __init__(self, config, logger, reporter=None):
         self.config = config
         self.logger = logger
+        self.reporter = reporter
 
     def validate_files(self, files):
         verify_cfg = self.config.get('verify', {})
         valid = []
 
-        # Configuración opcional
         max_size_mb = verify_cfg.get('max_file_size_mb')
         max_size = max_size_mb * 1024 * 1024 if max_size_mb else None
 
@@ -28,6 +28,8 @@ class Validator:
                 # Validar extensión
                 if allowed_exts and not any(f.endswith(ext) for ext in allowed_exts):
                     self.logger.warning(f"Extension not allowed: {f}")
+                    if self.reporter:
+                        self.reporter.file_failed(f, "Extension not allowed")
                     if fail_fast:
                         return []
                     continue
@@ -36,12 +38,16 @@ class Validator:
                 size = os.path.getsize(f)
                 if max_size and size > max_size:
                     self.logger.warning(f"File too large: {f}")
+                    if self.reporter:
+                        self.reporter.file_failed(f, "File too large")
                     if fail_fast:
                         return []
                     continue
 
                 if min_size and size < min_size:
                     self.logger.warning(f"File too small: {f}")
+                    if self.reporter:
+                        self.reporter.file_failed(f, "File too small")
                     if fail_fast:
                         return []
                     continue
@@ -49,25 +55,32 @@ class Validator:
                 # Validar permisos
                 if require_write and not os.access(f, os.W_OK):
                     self.logger.warning(f"No write permission: {f}")
+                    if self.reporter:
+                        self.reporter.file_failed(f, "No write permission")
                     if fail_fast:
                         return []
                     continue
 
                 if require_read and not os.access(f, os.R_OK):
                     self.logger.warning(f"No read permission: {f}")
+                    if self.reporter:
+                        self.reporter.file_failed(f, "No read permission")
                     if fail_fast:
                         return []
                     continue
 
                 valid.append(f)
+                if self.reporter:
+                    self.reporter.file_success()
 
-                # Validar cantidad máxima de archivos
                 if max_files and len(valid) >= max_files:
                     self.logger.warning("Reached maximum number of files allowed")
                     break
 
             except Exception as e:
                 self.logger.error(f"Validation error {f}: {e}")
+                if self.reporter:
+                    self.reporter.file_failed(f, str(e))
                 if fail_fast:
                     return []
 
