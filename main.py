@@ -39,9 +39,13 @@ def main():
 
     # Pipeline components
     selector = Selector(config)
-    validator = Validator(config, logger)
     sandbox = Sandbox(config, logger)
     planner = Planner(config, logger)
+
+    validator = Validator(config, 
+                        logger,
+                        reporter
+                        )
 
     executor = Executor(
         config,
@@ -63,7 +67,11 @@ def main():
 
     sandboxed = sandbox.setup(files)
 
-    tasks = planner.build_tasks(sandboxed)
+    sandbox_files = validator.validate_files(sandboxed)
+
+    logger.info(f"Validated {len(sandbox_files)} files")
+
+    tasks = planner.build_tasks(sandbox_files)
 
     executor.run(tasks)
 
@@ -72,9 +80,8 @@ def main():
     # -----------------------------------------
     # Commit
     # -----------------------------------------
-
-    if config["commit"]["auto"]:
-        sandbox.commit()
+    sandbox.commit()    
+        
 
     logger.info("Finished")
 
