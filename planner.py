@@ -109,14 +109,13 @@ class Planner:
 
     def apply_filesystem(self, op):
         try:
+            tmp_dir = self.config['sandbox']['tmp_dir']
             operation = op['operation']
 
             if operation == 'move':
-                # Archivos a mover según patrón
-                files = glob.glob(op['files'], recursive=True) if 'files' in op else []
-                dest = op['to']
-
-                # Crear carpeta destino si no existe
+                # expandir patrón dentro del sandbox
+                files = glob.glob(os.path.join(tmp_dir, op['files']), recursive=True) if 'files' in op else []
+                dest = os.path.join(tmp_dir, op['to'])
                 os.makedirs(dest, exist_ok=True)
 
                 for f in files:
@@ -124,13 +123,15 @@ class Planner:
                         shutil.move(f, os.path.join(dest, os.path.basename(f)))
 
             elif operation == 'create':
-                os.makedirs(op['path'], exist_ok=True)
+                os.makedirs(os.path.join(tmp_dir, op['path']), exist_ok=True)
 
             elif operation == 'delete':
-                if os.path.isdir(op['path']):
-                    shutil.rmtree(op['path'])
-                elif os.path.isfile(op['path']):
-                    os.remove(op['path'])
+                target = os.path.join(tmp_dir, op['path'])
+                if os.path.isdir(target):
+                    shutil.rmtree(target)
+                elif os.path.isfile(target):
+                    os.remove(target)
 
         except Exception as e:
             self.logger.error(f"Filesystem operation failed: {e}")
+
