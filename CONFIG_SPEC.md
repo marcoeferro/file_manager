@@ -228,7 +228,6 @@ Configuración del entorno aislado.
 ```yaml
 sandbox:
   enabled: true
-  strategy: copy
   tmp_dir: /tmp/massedit
   max_size_mb: 5000
   cleanup: true
@@ -237,7 +236,6 @@ sandbox:
 | Field     | Type   | Description                                      |
 |-----------|--------|--------------------------------------------------|
 | enabled   | bool   | Enable sandbox                                   |
-| strategy  | enum   | copy / hardlink / reflink                        |
 | tmp_dir   | path   | Temp directory                                   |
 | max_size_mb| int   | Max sandbox size                                 |
 | cleanup   | bool   | **Indica si se elimina automáticamente el sandbox después de la ejecución.** |
@@ -283,7 +281,16 @@ report:
 commit:
   auto: false
   require_clean_run: true
+  mode: replace
+  clean_dir: false
 ```
+
+| Field     | Type   | Description                                      |
+|-----------|--------|--------------------------------------------------|
+| auto      | bool   | automatically commit                             |
+| require_clean_run      | bool   | dont commit if any error happend                             |
+| mode      | enum   | (replace, merge) merge or replace the original tree with the sanboxed one                             |
+| clean_dir | bool   | only work of mode = replace control wather the replace mode deletes empty directories (clean directories) or not                              |
 
 ---
 
