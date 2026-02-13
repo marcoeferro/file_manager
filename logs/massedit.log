@@ -26,3 +26,124 @@
 [2026-02-13 12:54:28,156] INFO: Finished
 [2026-02-13 13:26:37,553] INFO: Starting MassEdit
 [2026-02-13 13:36:10,246] INFO: Starting MassEdit
+[2026-02-13 18:44:52,939] INFO: Starting MassEdit
+[2026-02-13 18:45:00,100] INFO: Selected 3 files
+[2026-02-13 18:45:00,100] ERROR: Validation error ./test_project\notes\note2.md: name 'os' is not defined
+[2026-02-13 18:45:00,100] INFO: Validated 0 files
+[2026-02-13 18:45:00,100] INFO: Sandbox created
+[2026-02-13 18:45:00,100] INFO: Validated 0 files
+[2026-02-13 18:45:00,131] INFO: JSON report written to reports\report.json
+[2026-02-13 18:45:00,132] INFO: Summary written to reports\report.json
+[2026-02-13 18:45:00,132] INFO: Sandbox contents before commit:
+[2026-02-13 18:46:17,130] INFO: Commit cancelado por el usuario
+[2026-02-13 18:46:17,130] INFO: Finished
+[2026-02-13 18:47:42,839] INFO: Starting MassEdit
+[2026-02-13 18:47:49,339] INFO: Selected 3 files
+[2026-02-13 18:47:49,339] INFO: Validated 3 files
+[2026-02-13 18:47:49,359] INFO: Sandbox created
+[2026-02-13 18:47:49,359] INFO: Validated 3 files
+[2026-02-13 18:47:49,372] INFO: JSON report written to reports\report.json
+[2026-02-13 18:47:49,373] INFO: Summary written to reports\report.json
+[2026-02-13 18:47:49,373] INFO: Sandbox contents before commit:
+[2026-02-13 18:48:21,076] INFO: Sandbox committed
+[2026-02-13 18:48:21,077] INFO: Finished
+[2026-02-13 19:08:19,383] INFO: Starting MassEdit
+[2026-02-13 19:08:22,692] INFO: Selected 3 files
+[2026-02-13 19:08:22,692] INFO: Validated 3 files
+[2026-02-13 19:08:22,707] INFO: Sandbox created
+[2026-02-13 19:08:22,707] INFO: Validated 3 files
+[2026-02-13 19:08:22,714] INFO: JSON report written to reports\report.json
+[2026-02-13 19:08:22,719] INFO: Summary written to reports\report.json
+[2026-02-13 19:08:22,719] INFO: Sandbox contents before commit:
+[2026-02-13 19:08:32,819] INFO: Commit mode: merge (sandbox se copia encima del root)
+[2026-02-13 19:08:32,827] INFO: Sandbox committed
+[2026-02-13 19:08:32,827] INFO: Finished
+[2026-02-13 19:10:29,638] INFO: Starting MassEdit
+[2026-02-13 19:10:29,639] INFO: Selected 3 files
+[2026-02-13 19:10:29,640] INFO: Validated 3 files
+[2026-02-13 19:10:29,640] INFO: Sandbox created
+[2026-02-13 19:10:29,640] INFO: Validated 3 files
+[2026-02-13 19:10:29,650] INFO: JSON report written to reports\report.json
+[2026-02-13 19:10:29,657] INFO: Summary written to reports\report.json
+[2026-02-13 19:10:29,657] INFO: Sandbox contents before commit:
+[2026-02-13 19:11:11,677] INFO: Commit mode: replace (root será sustituido por sandbox)
+[2026-02-13 19:11:11,677] INFO: Sandbox committed
+[2026-02-13 19:11:11,677] INFO: Finished
+[2026-02-13 19:25:50,243] INFO: Starting MassEdit
+[2026-02-13 19:25:50,244] INFO: Selected 3 files
+[2026-02-13 19:25:50,244] INFO: Validated 3 files
+[2026-02-13 19:25:50,247] INFO: Sandbox created
+[2026-02-13 19:25:50,248] INFO: Validated 3 files
+[2026-02-13 19:25:50,256] INFO: JSON report written to reports\report.json
+[2026-02-13 19:25:50,256] INFO: Summary written to reports\report.json
+[2026-02-13 19:25:50,256] INFO: Sandbox contents before commit:
+[2026-02-13 19:25:53,105] INFO: Commit mode: replace (root será sustituido por sandbox)
+[2026-02-13 19:25:53,121] INFO: Sandbox committed
+[2026-02-13 19:25:53,121] INFO: Finished
+[2026-02-13 19:28:36,217] INFO: Starting MassEdit
+[2026-02-13 19:28:36,217] INFO: Selected 3 files
+[2026-02-13 19:28:36,217] INFO: Validated 3 files
+[2026-02-13 19:28:36,217] INFO: Sandbox created
+[2026-02-13 19:28:36,217] INFO: Validated 3 files
+[2026-02-13 19:28:36,230] INFO: JSON report written to reports\report.json
+[2026-02-13 19:28:36,230] INFO: Summary written to reports\report.json
+[2026-02-13 19:28:36,230] INFO: Sandbox contents before commit:
+[2026-02-13 19:28:38,501] INFO: Commit mode: replace (root será sustituido por sandbox)
+[2026-02-13 19:28:38,505] INFO: Sandbox committed
+[2026-02-13 19:28:38,505] INFO: Finished
+[2026-02-13 19:33:16,340] INFO: Starting MassEdit
+[2026-02-13 19:33:16,340] INFO: Selected 3 files
+[2026-02-13 19:33:16,340] INFO: Validated 3 files
+[2026-02-13 19:33:16,340] INFO: Sandbox created
+[2026-02-13 19:33:16,340] INFO: Validated 3 files
+[2026-02-13 19:33:16,358] INFO: JSON report written to reports\report.json
+[2026-02-13 19:33:16,358] INFO: Summary written to reports\report.json
+[2026-02-13 19:33:16,358] INFO: Sandbox contents before commit:
+[2026-02-13 19:33:17,458] INFO: Commit mode: replace (root será sustituido por sandbox)
+[2026-02-13 19:33:17,458] INFO: Sandbox committed
+[2026-02-13 19:33:17,458] INFO: Finished
+[2026-02-13 19:33:42,673] INFO: Starting MassEdit
+[2026-02-13 19:33:42,673] INFO: Selected 3 files
+[2026-02-13 19:33:42,673] INFO: Validated 3 files
+[2026-02-13 19:33:42,673] INFO: Sandbox created
+[2026-02-13 19:33:42,673] INFO: Validated 3 files
+[2026-02-13 19:33:42,690] ERROR: Filesystem operation failed: [WinError 32] El proceso no tiene acceso al archivo porque está siendo utilizado por otro proceso: '/tmp/mass_edit\\notes\\note1.md'
+[2026-02-13 19:33:42,690] INFO: JSON report written to reports\report.json
+[2026-02-13 19:33:42,693] INFO: Summary written to reports\report.json
+[2026-02-13 19:33:42,693] INFO: Sandbox contents before commit:
+[2026-02-13 19:33:43,840] INFO: Commit mode: replace (root será sustituido por sandbox)
+[2026-02-13 19:33:43,840] INFO: Sandbox committed
+[2026-02-13 19:33:43,840] INFO: Finished
+[2026-02-13 19:35:30,188] INFO: Starting MassEdit
+[2026-02-13 19:35:30,188] INFO: Selected 3 files
+[2026-02-13 19:35:30,188] INFO: Validated 3 files
+[2026-02-13 19:35:30,190] INFO: Sandbox created
+[2026-02-13 19:35:30,190] INFO: Validated 3 files
+[2026-02-13 19:35:30,202] INFO: JSON report written to reports\report.json
+[2026-02-13 19:35:30,203] INFO: Summary written to reports\report.json
+[2026-02-13 19:35:30,203] INFO: Sandbox contents before commit:
+[2026-02-13 19:35:31,489] INFO: Commit mode: replace (root será sustituido por sandbox)
+[2026-02-13 19:35:31,506] INFO: Sandbox committed
+[2026-02-13 19:35:31,506] INFO: Finished
+[2026-02-13 19:35:56,788] INFO: Starting MassEdit
+[2026-02-13 19:35:56,788] INFO: Selected 3 files
+[2026-02-13 19:35:56,788] INFO: Validated 3 files
+[2026-02-13 19:35:56,788] INFO: Sandbox created
+[2026-02-13 19:35:56,788] INFO: Validated 3 files
+[2026-02-13 19:35:56,811] INFO: JSON report written to reports\report.json
+[2026-02-13 19:35:56,815] INFO: Summary written to reports\report.json
+[2026-02-13 19:35:56,815] INFO: Sandbox contents before commit:
+[2026-02-13 19:35:58,226] INFO: Commit mode: replace (root será sustituido por sandbox)
+[2026-02-13 19:35:58,233] INFO: Sandbox committed
+[2026-02-13 19:35:58,233] INFO: Finished
+[2026-02-13 19:36:18,199] INFO: Starting MassEdit
+[2026-02-13 19:36:18,201] INFO: Selected 3 files
+[2026-02-13 19:36:18,201] INFO: Validated 3 files
+[2026-02-13 19:36:18,203] INFO: Sandbox created
+[2026-02-13 19:36:18,203] INFO: Validated 3 files
+[2026-02-13 19:36:18,207] INFO: JSON report written to reports\report.json
+[2026-02-13 19:36:18,207] INFO: Summary written to reports\report.json
+[2026-02-13 19:36:18,207] INFO: Sandbox contents before commit:
+[2026-02-13 19:36:19,997] INFO: Commit mode: replace (root será sustituido por sandbox)
+[2026-02-13 19:36:20,003] INFO: Sandbox committed
+[2026-02-13 19:36:20,003] INFO: Finished
