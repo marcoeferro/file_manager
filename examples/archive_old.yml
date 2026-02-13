@@ -1,0 +1,19 @@
+version: "1.0.0"
+
+project:
+  root: "./docs"
+
+plan:
+  filesystem:
+
+    - operation: move
+      files: "**/*.md"
+      from: "docs/"
+      to: "archive/docs/"
+
+pipeline:
+  - select
+  - sandbox
+  - plan
+  - execute
+  - commit

@@ -1,0 +1,197 @@
+version: "1.0.0"
+
+# NOTA: 
+# on_limit_reached: abort
+# require_clean_run: true
+# Si abortás por límite → nunca clean → commit imposible.
+
+project:
+  root: "./"          # raíz del proyecto
+
+mode:
+  confirm: true
+  stop_on_error: false
+  continue_on_file_error: true
+  max_global_errors: 10
+  max_file_failures: 20
+  on_limit_reached: abort # abort | partial_commit | rollback
+  
+# -----------------------
+# 1. SELECTION
+# -----------------------
+select:
+  show_results: true       # Muestra los paths de los archivos seleccionados
+  confirm: true            # pide confirmacion para seguir con el script
+  include:
+    - "**/*.md"
+    - "**/*.txt"
+
+  exclude:
+    - ".git/**"
+    - "node_modules/**"
+
+  filters:
+    min_size_kb: 1
+    max_size_kb: 5000
+  
+  title_pattern:
+    regex: "\\s+$"
+
+  metadata:
+    name: "Spaced_Repetition"
+    value: "EOD"
+    type: "list"
+  
+
+# -----------------------
+# 2. VERIFICATION
+# -----------------------
+verify:
+  fail_fast: true          # corta al primer error
+  require_write: true      # exige permisos de escritura
+  require_read: true       # exige permisos de lectura
+  max_file_size_mb: 10     # tamaño máximo en MB
+  min_file_size_kb: 1      # tamaño mínimo en KB
+  allowed_extensions:      # extensiones permitidas
+    - ".md"
+    - ".txt"
+  max_files: 100           # cantidad máxima de archivos a procesar
+
+# -----------------------
+# 3. PLANNING
+# -----------------------
+plan:
+
+  # ---------- Content ----------
+  content:
+    - operation: fill
+      files: "**/*.md"
+      pattern: "TODO"
+      with: "DONE"
+
+    - operation: fill
+      files: "**/*.md"
+      pattern: "\\s+$"
+      with: ""
+
+    - operation: create
+      files: "**/*.md"
+      with: "lorem ipsum"
+
+    - operation: delete
+      files: "**/*.md"
+      mode: regex
+      pattern: "\\s+$"
+
+    - operation: delete
+      files: "**/*.md"
+      mode: full
+
+    - operation: replace
+      files: "**/*.md"
+      mode: regex
+      pattern: "\\s+$"
+      with: "bar"
+
+    - operation: replace
+      files: "**/*.md"
+      mode: full
+      with: ""
+
+  # ---------- Metadata ----------
+  metadata:
+    - operation: [create]
+      files: "**/*.md"
+      name: "review_day"
+      value: "01-05-2026"
+      type: "date"
+
+    - operation: [delete]
+      files: "**/*.md"
+      name: "Spaced Repetition"
+      mode: full
+
+    - operation: [fill]
+      files: "**/*.md"
+      name: "importance"
+      value: "1"
+      type: "number"
+
+    - operation: [create,fill,replace]
+      files: "**/*.md"
+      name: "Spaced_Repetition"
+      value: "ED"
+      type: "list"
+      mode: "full"
+
+    - operation: [create,fill,replace]
+      files: "**/*.md"
+      name: "Spaced_Repetition"
+      value: "ED"
+      type: "list"
+      mode: regex
+      pattern: "\\s+$"
+
+  # ---------- Filesystem ----------
+  filesystem:
+    - operation: move
+      files: "**/*.md"
+      from: "docs/"
+      to: "archive/docs/"
+
+# -----------------------
+# 4. SANDBOX
+# -----------------------
+sandbox:
+  enabled: true
+  strategy: copy #copy | hardlink | reflink
+  tmp_dir: /tmp/massedit
+  max_size_mb: 5000
+  cleanup: true
+
+# -----------------------
+# 5. EXECUTION
+# -----------------------
+execute:
+  parallel: true
+  workers: 4
+  batch_size: 100
+  timeout_sec: 300
+
+# -----------------------
+# 6. LOG
+# -----------------------
+logging:
+  enabled: true
+  level: INFO
+  directory: "./logs"
+  file: "massedit.log"
+
+# -----------------------
+# 7. REPORT
+# -----------------------
+report:
+  enabled: true
+  cli_summary: true
+  directory: "./reports"
+  json_file: "report.json"
+  summary_file: "summary.txt"
+
+# -----------------------
+# 8. COMMIT
+# -----------------------
+commit:
+  auto: false
+  require_clean_run: true
+
+# -----------------------
+# 9. PIPELINE
+# -----------------------
+pipeline:
+  - select
+  - verify
+  - sandbox
+  - plan
+  - execute
+  - report
+  - commit

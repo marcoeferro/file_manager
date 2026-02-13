@@ -1,0 +1,70 @@
+version: "1.0.0"
+
+project:
+  root: "./test_project"
+
+mode:
+  confirm: false
+  stop_on_error: true
+
+select:
+  include:
+    - "**/*.md"
+  show_results: true
+  confirm: true
+
+sandbox:
+  enabled: true
+  strategy: copy
+  tmp_dir: /tmp/mass_edit
+  cleanup: true
+
+verify:
+  fail_fast: true
+  require_write: true
+  max_file_size_mb: 10
+
+plan:
+
+  filesystem:
+    - operation: move
+      files: "**/*.md"
+      to: "archive/"
+
+  content:
+    - operation: delete
+      mode: regex
+      pattern: "\\s+$"
+
+execute:
+  parallel: true
+  workers: 4
+  batch_size: 100
+  timeout_sec: 300
+
+logging:
+  enabled: true
+  level: INFO
+  directory: "./logs"
+  file: "massedit.log"
+
+report:
+  enabled: true
+  cli_summary: true
+  formats: [json, txt]
+  directory: "./reports"
+  json_file: "report.json"
+  summary_file: "summary.txt"
+
+commit:
+  auto: true
+  require_clean_run: true
+
+pipeline:
+  - select
+  - verify
+  - sandbox
+  - plan
+  - execute
+  - report
+  - commit

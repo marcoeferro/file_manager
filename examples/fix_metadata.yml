@@ -1,0 +1,27 @@
+version: "1.0.0"
+
+project:
+  root: "./vault"
+
+plan:
+  metadata:
+
+    - operation: [delete]
+      files: "**/*.md"
+      name: "Spaced Repetition"
+      mode: full
+
+    - operation: [create,fill,replace]
+      files: "**/*.md"
+      name: "Spaced_Repetition"
+      value: "ED"
+      type: list
+      mode: full
+
+pipeline:
+  - select
+  - verify
+  - sandbox
+  - plan
+  - execute
+  - commit

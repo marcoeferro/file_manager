@@ -1,0 +1,28 @@
+[2026-02-13 12:49:52,176] INFO: Starting MassEdit
+[2026-02-13 12:49:52,178] INFO: Selected 3 files
+[2026-02-13 12:49:52,178] INFO: Validated 3 files
+[2026-02-13 12:49:52,181] INFO: Sandbox created
+[2026-02-13 12:49:52,189] ERROR: Filesystem operation failed: 'from'
+[2026-02-13 12:49:52,190] INFO: JSON report written to reports\report.json
+[2026-02-13 12:49:52,195] INFO: Summary written to reports\report.json
+[2026-02-13 12:49:52,199] INFO: Sandbox committed
+[2026-02-13 12:49:52,199] INFO: Finished
+[2026-02-13 12:50:39,481] INFO: Starting MassEdit
+[2026-02-13 12:50:39,481] INFO: Selected 3 files
+[2026-02-13 12:50:39,497] INFO: Validated 3 files
+[2026-02-13 12:50:39,497] INFO: Sandbox created
+[2026-02-13 12:50:39,506] ERROR: Filesystem operation failed: 'from'
+[2026-02-13 12:50:39,535] INFO: JSON report written to reports\report.json
+[2026-02-13 12:50:39,536] INFO: Summary written to reports\report.json
+[2026-02-13 12:50:39,539] INFO: Sandbox committed
+[2026-02-13 12:50:39,539] INFO: Finished
+[2026-02-13 12:54:28,100] INFO: Starting MassEdit
+[2026-02-13 12:54:28,100] INFO: Selected 3 files
+[2026-02-13 12:54:28,100] INFO: Validated 3 files
+[2026-02-13 12:54:28,116] INFO: Sandbox created
+[2026-02-13 12:54:28,150] INFO: JSON report written to reports\report.json
+[2026-02-13 12:54:28,152] INFO: Summary written to reports\report.json
+[2026-02-13 12:54:28,156] INFO: Sandbox committed
+[2026-02-13 12:54:28,156] INFO: Finished
+[2026-02-13 13:26:37,553] INFO: Starting MassEdit
+[2026-02-13 13:36:10,246] INFO: Starting MassEdit
